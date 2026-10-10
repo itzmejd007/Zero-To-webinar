@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A clear, quick mock resume check: see your score and the skills present or missing."
+    />
+    <title>0 to shipped — Resume parser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="0 to shipped home">
+        <span class="brand-mark" aria-hidden="true">0<span>→</span></span>
+        <span>to shipped</span>
+      </a>
+      <div class="header-note">
+        <span class="status-dot" aria-hidden="true"></span>
+        Your next role starts here
+      </div>
+      <a class="header-link" href="#how-it-works">
+        How it works <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>THE RESUME REALITY CHECK</span></div>
+          <h1 id="hero-title">Good work deserves<br />a <span>second look.</span></h1>
+          <p class="hero-description">
+            Find out how your resume stacks up. Get a straight-up score, see the
+            skills you already show, and spot what’s missing.
+          </p>
+          <div class="hero-proof">
+            <div class="avatar-stack" aria-hidden="true">
+              <span>J</span><span>M</span><span>A</span>
+            </div>
+            <p><strong>One quick check.</strong> A clearer next step.</p>
+          </div>
+        </div>
+
+        <div class="analysis-layout">
+          <section class="upload-card" aria-labelledby="upload-title">
+            <div class="card-topline">
+              <span class="step-label"><span>01</span> YOUR RESUME</span>
+              <span class="pdf-label">PDF ONLY</span>
+            </div>
+            <h2 id="upload-title">Start with your resume</h2>
+            <p class="card-description">Drop in a PDF and we’ll show you what to work on.</p>
+
+            <label class="drop-zone" id="drop-zone" for="resume-file" tabindex="0">
+              <input id="resume-file" type="file" accept=".pdf,application/pdf" />
+              <span class="upload-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14.5v3A2.5 2.5 0 0 0 7.5 20h9a2.5 2.5 0 0 0 2.5-2.5v-3" />
+                </svg>
+              </span>
+              <span class="drop-title" id="drop-title">Drop your PDF here</span>
+              <span class="drop-caption" id="drop-caption">or <span>browse files</span> on your device</span>
+              <span class="file-limit">PDF format · Max 10 MB</span>
+            </label>
+
+            <p class="upload-message" id="upload-message" role="status" aria-live="polite"></p>
+            <button class="analyze-button" id="analyze-button" type="button" disabled>
+              Check my resume <span aria-hidden="true">→</span>
+            </button>
+            <p class="privacy-note">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2m-8 0h9v6h-9V7Z" />
+              </svg>
+              Your file stays yours. No account needed.
+            </p>
+          </section>
+
+          <section class="report-card" aria-labelledby="report-title" aria-live="polite">
+            <div class="report-heading">
+              <div>
+                <span class="step-label"><span>02</span> YOUR SNAPSHOT</span>
+                <h2 id="report-title">A little room to grow.</h2>
+              </div>
+              <span class="sample-badge" id="report-badge">SAMPLE</span>
+            </div>
+
+            <div class="score-row">
+              <div class="score-ring" role="img" aria-label="Sample score: 82 out of 100">
+                <svg viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="score-track" cx="60" cy="60" r="51"></circle>
+                  <circle class="score-progress" cx="60" cy="60" r="51"></circle>
+                </svg>
+                <div class="score-value"><strong id="score-value">82</strong><span>/100</span></div>
+              </div>
+              <div class="score-copy">
+                <span class="score-kicker">RESUME SCORE</span>
+                <strong id="score-label">Strong start</strong>
+                <span id="score-description">A few key skills could make you an even better match.</span>
+              </div>
+            </div>
+
+            <div class="skills-grid">
+              <div class="skill-group">
+                <h3><span class="skill-dot present-dot" aria-hidden="true"></span>Skills you have</h3>
+                <ul class="skill-list present-list" id="present-skills">
+                  <li>JavaScript</li>
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>CSS</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3><span class="skill-dot missing-dot" aria-hidden="true"></span>Skills to add</h3>
+                <ul class="skill-list missing-list" id="missing-skills">
+                  <li>Accessibility</li>
+                  <li>Testing</li>
+                  <li>Performance</li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="mock-disclaimer" id="mock-disclaimer">
+              <span aria-hidden="true">✳</span>
+              Sample preview only — your PDF isn’t actually parsed in this demo.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="how-intro">
+          <span class="section-eyebrow">NO GUESSWORK, JUST THE GOOD STUFF</span>
+          <h2 id="how-title">A clearer picture in<br />three little steps.</h2>
+        </div>
+        <div class="how-steps">
+          <article class="how-step">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Bring your resume</h3>
+              <p>Start with a PDF you already have. No forms, no fuss.</p>
+            </div>
+          </article>
+          <article class="how-step">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Get the snapshot</h3>
+              <p>See a simple score and the skills on your radar.</p>
+            </div>
+          </article>
+          <article class="how-step">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Make your next move</h3>
+              <p>Know what’s working and where to focus next.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#">
+        <span class="brand-mark" aria-hidden="true">0<span>→</span></span>
+        <span>to shipped</span>
+      </a>
+      <p>A tiny step closer to your next big thing.</p>
+      <span class="footer-year">RESUME PARSER · 2026</span>
+    </footer>
+  </body>
+</html>
