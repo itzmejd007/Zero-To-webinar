@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { readApiResponse } from './api.js';
 
 const defaultJD = `We are looking for a strong frontend engineer with experience in React, JavaScript, TypeScript, HTML, CSS, and API integration. The ideal candidate is comfortable building responsive interfaces, working with Node.js and Express, collaborating with product teams, and communicating clearly with stakeholders. Experience with MongoDB, REST APIs, and modern frontend tooling is a plus.`;
 
@@ -42,14 +43,7 @@ export default function App() {
         method: 'POST',
         body: formData,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'The resume comparison failed.');
-      }
-
-      setResult(data);
+      setResult(await readApiResponse(response, 'The resume comparison failed.'));
     } catch (requestError) {
       setError(requestError.message);
     } finally {
